@@ -1,6 +1,6 @@
 ﻿namespace BlazorCodeTools
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Drawing.StringFormat stringFormat4 = new System.Drawing.StringFormat();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             System.Drawing.StringFormat stringFormat5 = new System.Drawing.StringFormat();
             System.Drawing.StringFormat stringFormat6 = new System.Drawing.StringFormat();
             this.tabControl1 = new System.Windows.Forms.TabControl();

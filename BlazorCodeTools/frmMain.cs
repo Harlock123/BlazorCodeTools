@@ -17,11 +17,11 @@ using System.Drawing.Text;
 
 namespace BlazorCodeTools
 {
-    public partial class Form1 : Form
+    public partial class frmMain : Form
     {
         private List<Field> TheFields = new List<Field>();
 
-        public Form1()
+        public frmMain()
         {
             InitializeComponent();
 
