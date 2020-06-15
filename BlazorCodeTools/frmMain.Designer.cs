@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Drawing.StringFormat stringFormat4 = new System.Drawing.StringFormat();
+            System.Drawing.StringFormat stringFormat1 = new System.Drawing.StringFormat();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Drawing.StringFormat stringFormat5 = new System.Drawing.StringFormat();
-            System.Drawing.StringFormat stringFormat6 = new System.Drawing.StringFormat();
+            System.Drawing.StringFormat stringFormat2 = new System.Drawing.StringFormat();
+            System.Drawing.StringFormat stringFormat3 = new System.Drawing.StringFormat();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnPresetDBs = new System.Windows.Forms.Button();
             this.MoreGrids = new System.Windows.Forms.SplitContainer();
             this.TaigQuerySchema = new TAIGridControl2.TAIGridControl();
             this.TheGrids = new System.Windows.Forms.SplitContainer();
@@ -61,7 +62,6 @@
             this.chkFullController = new System.Windows.Forms.CheckBox();
             this.btnGenerateController = new System.Windows.Forms.Button();
             this.fcController = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.btnPresetDBs = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MoreGrids)).BeginInit();
@@ -118,6 +118,17 @@
             this.tabPage1.Size = new System.Drawing.Size(1182, 504);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Setup";
+            // 
+            // btnPresetDBs
+            // 
+            this.btnPresetDBs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPresetDBs.Location = new System.Drawing.Point(1074, 4);
+            this.btnPresetDBs.Name = "btnPresetDBs";
+            this.btnPresetDBs.Size = new System.Drawing.Size(105, 23);
+            this.btnPresetDBs.TabIndex = 15;
+            this.btnPresetDBs.Text = "Preset DBs";
+            this.btnPresetDBs.UseVisualStyleBackColor = true;
+            this.btnPresetDBs.Click += new System.EventHandler(this.btnPresetDBs_Click);
             // 
             // MoreGrids
             // 
@@ -176,11 +187,11 @@
             this.TaigQuerySchema.GridHeaderFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.TaigQuerySchema.GridHeaderForeColor = System.Drawing.Color.Black;
             this.TaigQuerySchema.GridHeaderHeight = 17;
-            stringFormat4.Alignment = System.Drawing.StringAlignment.Near;
-            stringFormat4.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
-            stringFormat4.LineAlignment = System.Drawing.StringAlignment.Near;
-            stringFormat4.Trimming = System.Drawing.StringTrimming.Character;
-            this.TaigQuerySchema.GridHeaderStringFormat = stringFormat4;
+            stringFormat1.Alignment = System.Drawing.StringAlignment.Near;
+            stringFormat1.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat1.LineAlignment = System.Drawing.StringAlignment.Near;
+            stringFormat1.Trimming = System.Drawing.StringTrimming.Character;
+            this.TaigQuerySchema.GridHeaderStringFormat = stringFormat1;
             this.TaigQuerySchema.GridheaderVisible = true;
             this.TaigQuerySchema.Location = new System.Drawing.Point(6, 3);
             this.TaigQuerySchema.Name = "TaigQuerySchema";
@@ -264,11 +275,11 @@
             this.TAIGFields.GridHeaderFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.TAIGFields.GridHeaderForeColor = System.Drawing.Color.Black;
             this.TAIGFields.GridHeaderHeight = 16;
-            stringFormat5.Alignment = System.Drawing.StringAlignment.Near;
-            stringFormat5.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
-            stringFormat5.LineAlignment = System.Drawing.StringAlignment.Near;
-            stringFormat5.Trimming = System.Drawing.StringTrimming.Character;
-            this.TAIGFields.GridHeaderStringFormat = stringFormat5;
+            stringFormat2.Alignment = System.Drawing.StringAlignment.Near;
+            stringFormat2.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat2.LineAlignment = System.Drawing.StringAlignment.Near;
+            stringFormat2.Trimming = System.Drawing.StringTrimming.Character;
+            this.TAIGFields.GridHeaderStringFormat = stringFormat2;
             this.TAIGFields.GridheaderVisible = true;
             this.TAIGFields.Location = new System.Drawing.Point(0, 3);
             this.TAIGFields.Name = "TAIGFields";
@@ -334,11 +345,11 @@
             this.taigFieldDataTypes.GridHeaderFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             this.taigFieldDataTypes.GridHeaderForeColor = System.Drawing.Color.Black;
             this.taigFieldDataTypes.GridHeaderHeight = 17;
-            stringFormat6.Alignment = System.Drawing.StringAlignment.Near;
-            stringFormat6.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
-            stringFormat6.LineAlignment = System.Drawing.StringAlignment.Near;
-            stringFormat6.Trimming = System.Drawing.StringTrimming.Character;
-            this.taigFieldDataTypes.GridHeaderStringFormat = stringFormat6;
+            stringFormat3.Alignment = System.Drawing.StringAlignment.Near;
+            stringFormat3.HotkeyPrefix = System.Drawing.Text.HotkeyPrefix.None;
+            stringFormat3.LineAlignment = System.Drawing.StringAlignment.Near;
+            stringFormat3.Trimming = System.Drawing.StringTrimming.Character;
+            this.taigFieldDataTypes.GridHeaderStringFormat = stringFormat3;
             this.taigFieldDataTypes.GridheaderVisible = true;
             this.taigFieldDataTypes.Location = new System.Drawing.Point(4, 4);
             this.taigFieldDataTypes.Name = "taigFieldDataTypes";
@@ -380,6 +391,7 @@
             // txtProjectName
             // 
             this.txtProjectName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProjectName.Location = new System.Drawing.Point(654, 39);
             this.txtProjectName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProjectName.Name = "txtProjectName";
@@ -399,6 +411,7 @@
             // txtClassName
             // 
             this.txtClassName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtClassName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClassName.Location = new System.Drawing.Point(842, 39);
             this.txtClassName.Margin = new System.Windows.Forms.Padding(2);
             this.txtClassName.Name = "txtClassName";
@@ -458,7 +471,6 @@
             this.SQLStatement.CharWidth = 8;
             this.SQLStatement.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.SQLStatement.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.SQLStatement.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.SQLStatement.IsReplaceMode = false;
             this.SQLStatement.Location = new System.Drawing.Point(3, 64);
             this.SQLStatement.Name = "SQLStatement";
@@ -475,12 +487,11 @@
             // 
             this.txtConnectionString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConnectionString.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConnectionString.Location = new System.Drawing.Point(108, 6);
             this.txtConnectionString.Name = "txtConnectionString";
             this.txtConnectionString.Size = new System.Drawing.Size(961, 20);
             this.txtConnectionString.TabIndex = 1;
-            this.txtConnectionString.Text = "SERVER=luisbhds.database.windows.net;user id=harlock123;password=LaserMaster#1;in" +
-    "itial catalog=LUISBHDS_TEST";
             // 
             // label1
             // 
@@ -667,7 +678,7 @@
         '\"',
         '\'',
         '\''};
-            this.fcController.AutoScrollMinSize = new System.Drawing.Size(232, 23);
+            this.fcController.AutoScrollMinSize = new System.Drawing.Size(197, 23);
             this.fcController.BackBrush = null;
             this.fcController.CharHeight = 23;
             this.fcController.CharWidth = 13;
@@ -685,25 +696,14 @@
             this.fcController.Text = "Controller Code";
             this.fcController.Zoom = 100;
             // 
-            // btnPresetDBs
-            // 
-            this.btnPresetDBs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPresetDBs.Location = new System.Drawing.Point(1074, 4);
-            this.btnPresetDBs.Name = "btnPresetDBs";
-            this.btnPresetDBs.Size = new System.Drawing.Size(105, 23);
-            this.btnPresetDBs.TabIndex = 15;
-            this.btnPresetDBs.Text = "Preset DBs";
-            this.btnPresetDBs.UseVisualStyleBackColor = true;
-            this.btnPresetDBs.Click += new System.EventHandler(this.btnPresetDBs_Click);
-            // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 538);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Text = "Blazor Code Tools";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
