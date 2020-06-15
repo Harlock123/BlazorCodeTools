@@ -337,7 +337,43 @@ namespace BlazorCodeTools
             }
 
             sb.Append(tab + " </Columns >\n\n");
-            sb.Append("</RadzenGrid >\n");
+            sb.Append("</RadzenGrid >\n\n");
+
+            // stitch UI into a @CODE block here
+
+            sb.Append("@* The UI embetted code block goes here *@\n\n");
+
+            sb.Append("@code\n");
+            sb.Append("{\n\n");
+
+            sb.Append(tab + "public List<" + CLASSNAME + "> My" + CLASSNAME + "s;\n\n");
+
+            sb.Append(tab + "private async Task Fetch" + CLASSNAME + "s()\n");
+
+            sb.Append(tab + "{\n\n");
+
+            tab = "\t\t";
+
+            sb.Append(tab + "List<" + CLASSNAME + "> result = new List<" + CLASSNAME + ">();\n\n");
+
+            sb.Append(tab + "HttpClient cl = new HttpClient();\n\n");
+
+            sb.Append(tab + "// The URL is HCoded for a Typical DEV ENV\n");
+
+            sb.Append(tab + "var URL = \"https://localhost:5001/api/" + CLASSNAME + "s\";\n\n");
+
+            sb.Append(tab + "result = await cl.GetFromJsonAsync<List<" + CLASSNAME + ">>(URL);\n\n");
+
+            sb.Append(tab + "My" + CLASSNAME + "s = result;\n\n");
+
+            sb.Append(tab + "StateHasChanged();\n\n");
+
+            tab = "\t";
+
+            sb.Append(tab + "}\n\n");
+
+            sb.Append("}\n\n");
+
 
             fcUICode.Text = sb.ToString();
         }
