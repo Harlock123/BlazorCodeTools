@@ -14,6 +14,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System.Drawing.Text;
+using System.ComponentModel.Design;
 
 namespace BlazorCodeTools
 {
@@ -511,15 +512,62 @@ namespace BlazorCodeTools
             sb.Append(tab + "}\n\n");
 
             // INSTANCE GETTER
-                        
-            sb.Append(tab + "[HttpGet(\"{id}\")]\n");
-            sb.Append(tab + "public " + CLASSNAME + " Get(long id)\n");
+
+            var IDFIELD = "";
+            var IDFIELDTYPE = "long";
+
+            for(int r = 0;r<TaigQuerySchema.Rows;r++)
+            {
+                if (TaigQuerySchema.get_item(r,"is_identity_column").ToUpper() == "TRUE")
+                {
+                    IDFIELD = TaigQuerySchema.get_item(r, "name");
+                    //IDFIELDTYPE = "long";
+
+                    break;
+                }
+            }
+
+            if (IDFIELD == "")
+                sb.Append(tab + "[HttpGet(\"{id}\")]\n");
+            else
+                sb.Append(tab + "[HttpGet(\"{" + IDFIELD + "}\")]\n");
+
+            sb.Append(tab + "public " + CLASSNAME + " Get(" + IDFIELDTYPE + " " + IDFIELD + ")\n");
             sb.Append(tab + "{\n\n");
 
             tab = stab + "\t\t";
 
             sb.Append(tab + @"// Return a specific instance of " + CLASSNAME + "\n\n");
-            sb.Append(tab + "return new " + CLASSNAME + "();\n\n");
+
+            sb.Append(tab + CLASSNAME + " result = new " + CLASSNAME + "();\n\n");
+
+            var SQL2 = SQLStatement.Text.Replace("\n", " \" + \n" + tab + "\"").Replace("\r", "");
+
+            sb.Append(tab + "string sql =\"SELECT TOP 1 * from (" + SQL2 + ") SUBSELECTA WHERE SUBSELECTA." + IDFIELD + " = @FLD\";\n\n");
+            sb.Append(tab + "SqlConnection cn = new SqlConnection(\"" + txtConnectionString.Text + "\");\n\n");
+            sb.Append(tab + "cn.Open();\n\n");
+            sb.Append(tab + "SqlCommand cmd = new SqlCommand(sql,cn);\n\n");
+            sb.Append(tab + "cmd.Parameters.AddWithValue(\"@FLD\"," + IDFIELD + ");\n\n");
+            sb.Append(tab + "SqlDataReader r = cmd.ExecuteReader();\n\n");
+
+            sb.Append(tab + "while (r.Read())\n");
+            sb.Append(tab + "{\n");
+
+            tab = stab + "\t\t\t";
+
+            sb.Append(tab + "Copyfields(r,result);\n\n");
+
+            tab = stab + "\t\t";
+
+            sb.Append(tab + "}\n\n");
+
+            sb.Append(tab + "r.Close();\n");
+            sb.Append(tab + "cmd.Cancel();\n");
+            sb.Append(tab + "cmd.Dispose();\n");
+            sb.Append(tab + "cn.Close();\n");
+            sb.Append(tab + "cn.Dispose();\n\n");
+
+            sb.Append(tab + "return result;\n\n");
             tab = stab + "\t";
             sb.Append(tab + "}\n\n");
 
